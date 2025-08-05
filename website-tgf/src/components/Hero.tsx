@@ -19,7 +19,7 @@ const Hero = () => {
         <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-                backgroundImage: 'url("../../assets/main-page.jpg")'
+                backgroundImage: 'url("../../assets/Fluid-4k.webp")'
             }}
         ></div>
         <div className="absolute inset-0 bg-white bg-opacity-35"></div>
@@ -37,6 +37,10 @@ const Hero = () => {
               <span className="text-2xl md:text-3xl font-semibold text-[#80251E] mb-8">
     Marbre & Granite d'Exception
   </span>
+              {/*<p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-black">*/}
+              {/*    Spécialistes de l'importation, du façonnage et de la pose de marbre, granite et pierres naturelles*/}
+              {/*    depuis plus de 5 ans*/}
+              {/*</p>*/}
 
               {/* Boutons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
