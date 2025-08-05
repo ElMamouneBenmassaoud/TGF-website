@@ -63,24 +63,24 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-gray-900 to-gray-800 text-white p-12 rounded-lg">
+        <div className="mt-16 bg-gradient-to-r from-[#505050] via-[#3e3e3e] to-[#2e2e2e] text-white p-12 rounded-2xl shadow-2xl">
           <div className="text-center">
             <h3 className="text-3xl font-bold mb-6">Pourquoi Choisir TGF ?</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
-                <h4 className="text-xl font-semibold text-amber-400 mb-3">Expertise Reconnue</h4>
+                <h4 className="text-xl font-semibold text-[#B94B3C] mb-3">Expertise Reconnue</h4>
                 <p className="text-gray-300">
                   Plus de 5 ans d'expérience dans le domaine des pierres naturelles
                 </p>
               </div>
               <div>
-                <h4 className="text-xl font-semibold text-amber-400 mb-3">Matériaux Premium</h4>
+                <h4 className="text-xl font-semibold text-[#B94B3C] mb-3">Matériaux Premium</h4>
                 <p className="text-gray-300">
                   Sélection rigoureuse des meilleurs matériaux du monde entier
                 </p>
               </div>
               <div>
-                <h4 className="text-xl font-semibold text-amber-400 mb-3">Service Complet</h4>
+                <h4 className="text-xl font-semibold text-[#B94B3C] mb-3">Service Complet</h4>
                 <p className="text-gray-300">
                   De la conception à la réalisation, nous gérons votre projet de A à Z
                 </p>

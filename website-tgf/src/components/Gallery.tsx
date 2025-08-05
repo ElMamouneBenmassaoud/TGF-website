@@ -59,8 +59,8 @@ const Gallery = () => {
     }
   ];
 
-  const filteredImages = selectedCategory === 'all' 
-    ? images 
+  const filteredImages = selectedCategory === 'all'
+    ? images
     : images.filter(img => img.category === selectedCategory);
 
   const openModal = (index: number) => {
@@ -88,7 +88,7 @@ const Gallery = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Notre Galerie</h2>
-          <div className="w-24 h-1 bg-amber-600 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-[#C0392B] mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Découvrez nos plus belles réalisations en marbre, granite et pierres naturelles
           </p>
@@ -102,8 +102,8 @@ const Gallery = () => {
               onClick={() => setSelectedCategory(category.id)}
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                 selectedCategory === category.id
-                  ? 'bg-amber-600 text-white shadow-lg'
-                  : 'bg-white text-gray-700 hover:bg-amber-100 hover:text-amber-600'
+                  ? 'bg-[#C0392B] text-white shadow-lg'
+                  : 'bg-white text-gray-700 hover:bg-[#f5eaea] hover:text-[#C0392B]'
               }`}
             >
               {category.name}
@@ -142,21 +142,21 @@ const Gallery = () => {
             <div className="relative max-w-4xl max-h-full">
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 text-white hover:text-amber-400 z-10"
+                className="absolute top-4 right-4 text-white hover:text-[#80251E] z-10"
               >
                 <X className="w-8 h-8" />
               </button>
-              
+
               <button
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-amber-400 z-10"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-[#80251E] z-10"
               >
                 <ChevronLeft className="w-8 h-8" />
               </button>
-              
+
               <button
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-amber-400 z-10"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-[#80251E] z-10"
               >
                 <ChevronRight className="w-8 h-8" />
               </button>
@@ -166,7 +166,7 @@ const Gallery = () => {
                 alt={filteredImages[selectedImage].title}
                 className="max-w-full max-h-full object-contain"
               />
-              
+
               <div className="absolute bottom-4 left-4 right-4 text-white text-center">
                 <h3 className="text-2xl font-bold mb-2">{filteredImages[selectedImage].title}</h3>
                 <p className="text-lg">{filteredImages[selectedImage].description}</p>

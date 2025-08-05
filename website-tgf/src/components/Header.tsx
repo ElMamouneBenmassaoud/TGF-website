@@ -38,9 +38,9 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <img
-                src="../../assets/logo-tgf.png"
+                src="../../assets/LOGO-COULEUR.png"
                 alt="Logo TGF"
-                className="h-12 w-auto"
+                className="h-20 w-auto"
             />
           </div>
 

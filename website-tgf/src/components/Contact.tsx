@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,10 +9,6 @@ const Contact = () => {
     phone: '',
     company: '',
     projectType: '',
-    surface: '',
-    budget: '',
-    location: '',
-    timeline: '',
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -25,26 +22,29 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Ici vous pouvez ajouter la logique d'envoi du formulaire
-    console.log('Formulaire soumis:', formData);
-    setIsSubmitted(true);
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        projectType: '',
-        surface: '',
-        budget: '',
-        location: '',
-        timeline: '',
-        message: ''
-      });
-    }, 3000);
+    const templateParams = {
+      ...formData,
+    };
+
+    emailjs.send('service_mbjra2a', 'template_5hl522l', templateParams, 'RdKKEUno5ej7G_-bu')
+        .then(() => {
+          setIsSubmitted(true);
+          setTimeout(() => {
+            setIsSubmitted(false);
+            setFormData({
+              name: '',
+              email: '',
+              phone: '',
+              company: '',
+              projectType: '',
+              message: ''
+            });
+          }, 3000);
+        })
+        .catch((error) => {
+          console.error('Erreur lors de l’envoi de l’email :', error);
+        });
   };
 
   if (isSubmitted) {
@@ -58,7 +58,7 @@ const Contact = () => {
               <p className="text-lg text-gray-600 mb-6">
                 Nous avons bien reçu votre demande de devis. Notre équipe vous contactera dans les plus brefs délais.
               </p>
-              <p className="text-amber-600 font-semibold">
+              <p className="text-[#C0392B] font-semibold">
                 Réponse garantie sous 24h
               </p>
             </div>
@@ -67,6 +67,7 @@ const Contact = () => {
       </section>
     );
   }
+
 
   return (
     <section id="contact" className="py-20 bg-white">
@@ -136,7 +137,7 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <form onSubmit={handleSubmit} className="bg-gray-50 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Demander de Devis</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Demande de Devis</h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
