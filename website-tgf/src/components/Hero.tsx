@@ -19,14 +19,14 @@ const Hero = () => {
         <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-                backgroundImage: 'url("../../public/Fluid-4k.webp")'
+                backgroundImage: 'url("/images/Fluid-4K.webp")'
             }}
         ></div>
         <div className="absolute inset-0 bg-white bg-opacity-35"></div>
 
           <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 py-20">
               <img
-                  src="/public/LOGO-COULEUR.png"
+                  src="/images/LOGO-COULEUR.png"
                   alt="Logo TGF"
                   style={{height: '182px'}} // entre h-28 (112px) et h-32 (128px)
                   className="w-auto mb-4"
