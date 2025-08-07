@@ -38,7 +38,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <img
-                src="../../assets/LOGO-COULEUR.png"
+                src="../../public/LOGO-COULEUR.png"
                 alt="Logo TGF"
                 className="h-20 w-auto"
             />

@@ -1,89 +1,41 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapPin, Calendar, Users } from 'lucide-react';
+import { supabase } from '../supabaseClient'; // adapte le chemin si nécessaire
+
+type Project = {
+  id: number;
+  title: string;
+  location: string;
+  year: string;
+  category: string;
+  image: string;
+  description: string;
+  surface: string;
+  materials: string[];
+};
 
 const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "Hôtel Royal Mansour",
-      location: "Marrakech",
-      year: "2023",
-      category: "Hôtellerie de Luxe",
-      image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-      description: "Rénovation complète des espaces communs avec marbre Carrara et granite noir Zimbabwe",
-      surface: "2,500 m²",
-      materials: ["Marbre Carrara", "Granite Noir Zimbabwe", "Travertin"]
-    },
-    {
-      id: 2,
-      title: "Résidence Al Manar",
-      location: "Casablanca",
-      year: "2023",
-      category: "Résidentiel Haut Standing",
-      image: "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-      description: "Aménagement de 50 appartements de luxe avec plans de travail et sols en pierre naturelle",
-      surface: "3,200 m²",
-      materials: ["Granite Brésilien", "Marbre Emperador", "Quartzite"]
-    },
-    {
-      id: 3,
-      title: "Centre Commercial Anfa Place",
-      location: "Casablanca",
-      year: "2022",
-      category: "Commercial",
-      image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-      description: "Revêtement des sols et murs des espaces communs et boutiques de prestige",
-      surface: "5,000 m²",
-      materials: ["Granite Gris Perle", "Marbre Botticino", "Pierre Bleue"]
-    },
-    {
-      id: 4,
-      title: "Villa Privée Ain Diab",
-      location: "Casablanca",
-      year: "2022",
-      category: "Résidentiel Privé",
-      image: "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-      description: "Aménagement complet d'une villa de 800m² avec piscine et terrasses",
-      surface: "800 m²",
-      materials: ["Travertin Beige", "Granite Rose", "Marbre Blanc Thassos"]
-    },
-    {
-      id: 5,
-      title: "Mosquée Hassan II - Rénovation",
-      location: "Casablanca",
-      year: "2021",
-      category: "Patrimoine Religieux",
-      image: "https://images.pexels.com/photos/1571471/pexels-photo-1571471.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-      description: "Restauration des revêtements en marbre des espaces intérieurs",
-      surface: "1,200 m²",
-      materials: ["Marbre Carrara Premium", "Granite Noir Absolut"]
-    },
-    {
-      id: 6,
-      title: "Siège Social Bank of Africa",
-      location: "Rabat",
-      year: "2021",
-      category: "Corporate",
-      image: "https://images.pexels.com/photos/1080711/pexels-photo-1080711.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-      description: "Hall d'accueil et espaces de réception avec matériaux nobles",
-      surface: "1,800 m²",
-      materials: ["Granite Labrador", "Marbre Calacatta", "Onyx Translucide"]
-    },
-    {
-      id: 6,
-      title: "Siège Social Bank of Africa",
-      location: "Rabat",
-      year: "2021",
-      category: "Corporate",
-      image: "https://images.pexels.com/photos/1080711/pexels-photo-1080711.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-      description: "Hall d'accueil et espaces de réception avec matériaux nobles",
-      surface: "1,800 m²",
-      materials: ["Granite Labrador", "Marbre Calacatta", "Onyx Translucide"]
-    }
-  ];
-
+  const [projects, setProjects] = useState<Project[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const projectsPerPage = 6;
+
+  // ✅ Charger les projets depuis Supabase
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const { data, error } = await supabase
+          .from('projects')
+          .select('*')
+          .order('year', { ascending: false });
+
+      if (error) {
+        console.error('Erreur de chargement :', error);
+      } else {
+        setProjects(data || []);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   const visibleProjects = projects.slice(currentIndex, currentIndex + projectsPerPage);
 
@@ -98,7 +50,6 @@ const Projects = () => {
       setCurrentIndex(currentIndex - projectsPerPage);
     }
   };
-
 
   return (
     <section id="projets" className="py-20 bg-white">

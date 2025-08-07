@@ -13,7 +13,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <img
-              src="../../assets/main-page.jpg"
+              src="../../public/main-page.jpg"
               alt="Atelier TGF"
               className="rounded-lg shadow-lg w-full h-96 object-cover"
             />
