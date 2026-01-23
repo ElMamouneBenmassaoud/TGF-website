@@ -12,17 +12,23 @@ const Hero = () => {
   return (
       <section id="accueil"
                className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white pt-20">
-        {/* Background overlay */}
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+          {/* Background overlay */}
+          <div className="absolute inset-0 bg-black opacity-50"></div>
 
-        {/* Background image */}
-        <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-                backgroundImage: 'url("/images/Fluid-4K.webp")'
-            }}
-        ></div>
-        <div className="absolute inset-0 bg-white bg-opacity-35"></div>
+          {/* Background image */}
+          <div className="absolute inset-0 overflow-hidden">
+              <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+              >
+                  <source src="/videos/Atlas Concorde - Leffet marbre Marvel dans la salle de bain.mp4" type="video/mp4"/>
+              </video>
+          </div>
+
+          <div className="absolute inset-0 bg-white bg-opacity-35"></div>
 
           <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 py-20">
               <img

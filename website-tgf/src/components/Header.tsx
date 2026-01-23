@@ -13,10 +13,10 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-lg fixed w-full top-0 z-50">
-      {/* Top bar */}
-      <div className="bg-[#505050] text-white py-2">
-        <div className="container mx-auto px-4 flex justify-between items-center text-sm">
+      <header className="fixed w-full top-0 z-50 bg-white/40 backdrop-blur-md border-b border-white/40">
+        {/* Top bar */}
+        <div className="bg-black/50 text-white py-2 backdrop-blur-md">
+          <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center space-x-4">
             <div className="flex items-center">
               <Phone className="w-4 h-4 mr-2"/>
@@ -48,23 +48,28 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             <button onClick={() => scrollToSection('accueil')}
-                    className="text-gray-700 hover:text-[#80251E] transition-colors">
+                    className="text-gray-900 drop-shadow-sm hover:text-[#80251E] transition-colors font-medium"
+>
               Accueil
             </button>
             <button onClick={() => scrollToSection('apropos')}
-                    className="text-gray-700 hover:text-[#80251E] transition-colors">
+                    className="text-gray-900 drop-shadow-sm hover:text-[#80251E] transition-colors font-medium"
+>
               À Propos
             </button>
             <button onClick={() => scrollToSection('services')}
-                    className="text-gray-700 hover:text-[#80251E] transition-colors">
+                    className="text-gray-900 drop-shadow-sm hover:text-[#80251E] transition-colors font-medium"
+>
               Services
             </button>
             <button onClick={() => scrollToSection('projets')}
-                    className="text-gray-700 hover:text-[#80251E] transition-colors">
+                    className="text-gray-900 drop-shadow-sm hover:text-[#80251E] transition-colors font-medium"
+>
               Projets
             </button>
             <button onClick={() => scrollToSection('partenaires')}
-                    className="text-gray-700 hover:text-[#80251E] transition-colors">
+                    className="text-gray-900 drop-shadow-sm hover:text-[#80251E] transition-colors font-medium"
+>
               Partenaires
             </button>
             <button
