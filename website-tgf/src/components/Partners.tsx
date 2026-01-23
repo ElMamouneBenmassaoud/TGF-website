@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Building, Users, Award, Handshake } from 'lucide-react';
 import { supabase } from '../supabaseClient';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -10,24 +9,19 @@ import { Autoplay } from 'swiper/modules';
 interface Partner {
     id: number;
     name: string;
-    category: string;
     logo_path: string;
-    website?: string;
 }
-
-const iconMap: Record<string, JSX.Element> = {
-    architectes: <Building className="w-8 h-8 text-[#C0392B]" />,
-    promoteurs: <Users className="w-8 h-8 text-[#C0392B]" />,
-    hotels: <Award className="w-8 h-8 text-[#C0392B]" />,
-    entreprises: <Handshake className="w-8 h-8 text-[#C0392B]" />,
-};
 
 const Partners = () => {
     const [partners, setPartners] = useState<Partner[]>([]);
 
     useEffect(() => {
         const fetchPartners = async () => {
-            const { data, error } = await supabase.from('partenaires').select('*');
+            const { data, error } = await supabase
+                .from('partenaires')
+                .select('id, name, logo_path')
+                .order('id', { ascending: true });
+
             if (error) {
                 console.error('Erreur de chargement des partenaires:', error);
                 return;
@@ -45,7 +39,7 @@ const Partners = () => {
                     <h2 className="text-4xl font-bold text-gray-900 mb-4">Nos Partenaires</h2>
                     <div className="w-24 h-1 bg-[#C0392B] mx-auto mb-6"></div>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Nous collaborons avec les plus grands noms de l'architecture, de la promotion immobilière et de l'hôtellerie au Maroc
+                        Ils nous font confiance pour leurs projets haut standing.
                     </p>
                 </div>
 
@@ -53,33 +47,33 @@ const Partners = () => {
                     <Swiper
                         modules={[Autoplay]}
                         spaceBetween={30}
-                        slidesPerView={1}
+                        slidesPerView={2}
                         loop={true}
                         autoplay={{ delay: 2000 }}
                         breakpoints={{
-                            640: { slidesPerView: 2 },
-                            768: { slidesPerView: 3 },
-                            1024: { slidesPerView: 4 },
-                            1280: { slidesPerView: 5 },
+                            640: { slidesPerView: 3 },
+                            768: { slidesPerView: 4 },
+                            1024: { slidesPerView: 5 },
+                            1280: { slidesPerView: 6 },
                         }}
                     >
                         {partners.map((partner) => {
-                            const { data: publicUrlData } = supabase.storage
-                                .from('logos_partner') // <-- nom du bucket
-                                .getPublicUrl(partner.logo_path);
+                            const logoUrl = supabase.storage
+                                .from('promoteur_logo')
+                                .getPublicUrl(partner.logo_path).data.publicUrl;
 
-                            const logoUrl = publicUrlData.publicUrl;
-                            console.log("logo_path:", partner.logo_path);
-                            console.log("logoUrl:", logoUrl);
                             return (
                                 <SwiperSlide key={partner.id}>
-                                    <div className="aspect-[3/2] w-full max-w-[160px] mx-auto flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow hover:shadow-md transition">
-                                        <img
-                                            src={logoUrl}
-                                            alt={partner.name}
-                                            className="max-h-[100%] max-w-[100%] object-contain"
-                                            title={partner.name}
-                                        />
+                                    <div className="w-full flex flex-col items-center justify-center">
+                                        <div className="aspect-[3/2] w-full max-w-[160px] mx-auto flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow hover:shadow-md transition p-3">
+                                            <img
+                                                src={logoUrl}
+                                                alt={partner.name}
+                                                className="max-h-[100%] max-w-[100%] object-contain"
+                                                title={partner.name}
+                                                loading="lazy"
+                                            />
+                                        </div>
                                     </div>
                                 </SwiperSlide>
                             );
