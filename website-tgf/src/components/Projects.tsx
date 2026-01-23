@@ -68,7 +68,11 @@ const Projects = () => {
                    className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className="relative overflow-hidden">
                   <img
-                      src={project.image}
+                      src={
+                        supabase.storage
+                            .from('immeuble_partner')
+                            .getPublicUrl(project.image).data.publicUrl
+                      }
                       alt={project.title}
                       className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                   />
