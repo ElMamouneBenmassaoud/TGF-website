@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@keyframes wiggle {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    20% { transform: translateX(-1px) rotate(-2deg); }
+    40% { transform: translateX(1px) rotate(2deg); }
+    60% { transform: translateX(-1px) rotate(-1deg); }
+    80% { transform: translateX(1px) rotate(1deg); }
+}
+
+.badge-wiggle {
+    animation: wiggle 1.6s ease-in-out infinite;
+}
+
+
+@keyframes shimmer {
+    0% { transform: translateX(-30%) rotate(12deg); opacity: 0.25; }
+    50% { opacity: 0.45; }
+    100% { transform: translateX(220%) rotate(12deg); opacity: 0.25; }
+}
+
+.animate-shimmer {
+    animation: shimmer 3.2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    20% { transform: translateX(-1px) rotate(-2deg); }
+    40% { transform: translateX(1px) rotate(2deg); }
+    60% { transform: translateX(-1px) rotate(-1deg); }
+    80% { transform: translateX(1px) rotate(1deg); }
+}
+
+.badge-wiggle {
+    animation: wiggle 1.6s ease-in-out infinite;
+}

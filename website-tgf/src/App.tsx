@@ -8,21 +8,23 @@ import Projects from './components/Projects';
 import Partners from './components/Partners';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ExtraServices from "./components/ExtraServices";
 
 function App() {
-  return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <Hero />
-      <About />
-      <Services />
-      {/*<Gallery />*/}
-      <Projects />
-      <Partners />
-      <Contact />
-      <Footer />
-    </div>
-  );
+    return (
+        <div className="min-h-screen bg-white">
+            <Header/>
+            <Hero/>
+            <About/>
+            <Services/>
+            {/*<Gallery />*/}
+            <Projects/>
+            <ExtraServices/>
+            <Partners/>
+            <Contact/>
+            <Footer/>
+        </div>
+    );
 }
 
 export default App;
