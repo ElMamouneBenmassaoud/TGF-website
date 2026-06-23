@@ -124,7 +124,8 @@ const Footer = () => {
                             <div className="flex items-start">
                                 <MapPin className="w-5 h-5 text-[#80251E] mr-3 mt-1"/>
                                 <div className="text-gray-300">
-                                    <p>Soualem Trifia. Province Berrechid.</p>
+                                    <p>BD Al Qods, Lot Assakane Al Anik 4,</p>
+                                    <p>Centre Diamond 2, Étg 4 N°16.</p>
                                     <p>Casablanca, Maroc</p>
                                 </div>
                             </div>

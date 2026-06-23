@@ -114,12 +114,9 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Adresse</h4>
                     <p className="text-gray-600">
-                      KM 4.8, Route provinciale de Sidi Rahal N°3603 (200m Derrière Station SHELL).
+                      BD Al Qods, Lot Assakane Al Anik 4, Centre Diamond 2, Étg 4 N°16.
                     </p>
-                    <p className="text-gray-600">
-                      Soualem Trifia. Province Berrechid.
-                    </p>
-                    <p className="text-gray-600">Grand Casablanca - Settat Maroc</p>
+                    <p className="text-gray-600">Casablanca, Maroc</p>
                   </div>
                 </div>
               </div>

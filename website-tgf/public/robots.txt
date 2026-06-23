@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Robots IA (mettre Disallow si vous préférez les bloquer)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://tgf.ma/sitemap.xml
