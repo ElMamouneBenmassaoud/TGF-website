@@ -98,9 +98,9 @@ const Hero = () => {
 
 
                 {/* Texte sous le logo */}
-                <span className="text-2xl md:text-3xl font-semibold text-[#80251E] mb-8">
-    Marbre & Granite d'Exception
-  </span>
+                <h1 className="text-2xl md:text-3xl font-semibold text-[#80251E] mb-8">
+    L'élégance dans chaque détail
+  </h1>
                 {/*<p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-black">*/}
                 {/*    Spécialistes de l'importation, du façonnage et de la pose de marbre, granite et pierres naturelles*/}
                 {/*    depuis plus de 5 ans*/}
