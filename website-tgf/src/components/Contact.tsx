@@ -114,9 +114,9 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Adresse</h4>
                     <p className="text-gray-600">
-                      BD Al Qods, Lot Assakane Al Anik 4, Centre Diamond 2, Étg 4 N°16.
+                      Bd Al Qods, Lot Assakane Al Anik 4, Centre Diamond 2, Étage 4, N°16.
                     </p>
-                    <p className="text-gray-600">Casablanca, Maroc</p>
+                    <p className="text-gray-600">Casablanca - Maroc</p>
                   </div>
                 </div>
               </div>
